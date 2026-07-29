@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Americas Health</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com/">
+  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body, html {
+      margin: 0; padding: 0; height: 100%;
+      background-color: #fff;
+      display: flex; flex-direction: column; align-items: center;
+      width: 100%; overflow-x: hidden;
+      font-family: 'Inter', sans-serif;
+    }
+    .main-content { flex: 1 0 auto; display: flex; flex-direction: column; align-items: center; width: 100%; }
+    #page1 { display: flex; flex-direction: column; align-items: center; width: 100%; }
+
+    /* Header / Logo */
+    .logo-wrapper {
+      background-color: #243B45;
+      text-align: center; width: 100%;
+      display: flex; flex-direction: column; align-items: center;
+      padding: 15px 0; position: relative;
+    }
+    .logo-img { height: 69px; width: auto; }
+    .govt-tag {
+      color: #109E8E; text-align: center; font-weight: 700;
+      font-size: 11px; letter-spacing: 2.5px;
+      text-transform: uppercase; margin-top: 8px;
+    }
+
+    /* Click-to-call CTA (top right of header) */
+    .call-cta {
+      position: absolute; top: 50%; right: 24px; transform: translateY(-50%);
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none; text-align: left;
+    }
+    .call-cta-icon {
+      flex: 0 0 auto; width: 44px; height: 44px; border-radius: 50%;
+      background: #109E8E; display: flex; align-items: center; justify-content: center;
+    }
+    .call-cta-icon svg { width: 24px; height: 24px; fill: #fff; }
+    .call-cta-text { display: flex; flex-direction: column; line-height: 1.25; }
+    .call-cta-label { color: #fff; font-weight: 700; font-size: 13px; }
+    .call-cta-number { color: #109E8E; font-weight: 800; font-size: 21px; margin: 1px 0; white-space: nowrap; }
+    .call-cta-tty { color: #fff; font-weight: 600; font-size: 12px; }
+    .call-cta-hours { color: #C4C4C4; font-size: 12px; font-weight: 500; }
+    @media (max-width: 860px) {
+      .call-cta {
+        position: static; transform: none;
+        justify-content: center; margin-top: 14px;
+      }
+    }
+
+    /* Offer / Headline */
+    .offer-container { display: flex; flex-direction: column; align-items: center; width: 100%; }
+    .offer-headline {
+      color: #000; text-align: center; font-weight: 800;
+      font-size: 39px; line-height: 49px; padding-top: 5px; margin: 0;
+      text-transform: capitalize;
+    }
+    .offer-sep-disclaimer {
+      color: #5b5a5a; text-align: center; font-weight: 600;
+      font-size: 20px; line-height: 24px;
+      margin: 20px 0 40px 0; max-width: 640px; padding: 0;
+    }
+    .offer-subheadline {
+      color: #5b5a5a; text-align: center; font-weight: 600;
+      font-size: 20px; line-height: 24px; margin: 20px 0 0 0;
+    }
+
+    /* Form */
+    .main-form-container { width: 100%; padding: 0 0.75rem; margin: 0 auto; }
+    .main-form-container-v2 {
+      display: flex; justify-content: center; flex-direction: column;
+      padding-left: 2.4rem; padding-right: 2.4rem;
+    }
+    .form-container {
+      display: flex; flex-direction: column; align-items: center;
+      background: #fff; width: 60vw; max-width: 731px;
+      margin: 0 auto 80px auto;
+      border: 1px solid rgba(151,151,151,1); border-radius: 9px;
+      padding: 28px 22px;
+    }
+    .form-field { width: 100%; text-align: left; margin: 0; }
+    .form-field label, .form-field-third label {
+      display: block; margin: 0.25rem 0;
+      font-size: 18px; font-weight: 600; color: #5b5a5a;
+      font-family: 'Inter', sans-serif; line-height: 1.5;
+    }
+    .form-field input, .form-field select,
+    .form-field-third input, .form-field-third select {
+      width: 100%; border-radius: 10px; padding: 12px;
+      border: 2px solid #000; font-size: 16px;
+      height: 54px; margin-bottom: 4px;
+      box-shadow: none; outline: none;
+    }
+    .form-field input:focus, .form-field select:focus,
+    .form-field-third input:focus, .form-field-third select:focus {
+      border-color: #000; outline: 0 none;
+    }
+    .form-field-row { display: flex; gap: 1rem; width: 100%; }
+    .form-field-third { flex: 1; max-width: calc(33.33% - 10px); }
+    .form-field-third select {
+      width: 100%; border-radius: 10px; padding: 0.5rem 0.75rem;
+      border: 2px solid #000; font-size: 16px; height: 54px;
+      margin-bottom: 4px; box-shadow: none;
+    }
+
+    /* Consent */
+    .phone-consent-text {
+      font-size: 13px; font-family: 'Inter', sans-serif; font-weight: 400;
+      color: #5B5A5A; text-align: left; margin-top: 22px;
+      display: flex; gap: 12px; line-height: 13px;
+    }
+    .phone-consent-text input[type="checkbox"] {
+      border-radius: 0; border: 1px solid #000; background: #fff;
+      cursor: pointer; height: 20px; width: 20px; flex: 1 0 auto;
+      margin: 0; padding: 0; appearance: none; -webkit-appearance: none;
+    }
+    .phone-consent-text input[type="checkbox"]:checked {
+      border: none;
+      background: #109E8E url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' stroke='white' stroke-width='1' d='M12.207 4.793a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414 0l-2.5-2.5a1 1 0 0 1 1.414-1.414L6.5 9.086l4.293-4.293a1 1 0 0 1 1.414 0z'/%3E%3C/svg%3E");
+      background-size: 1rem; background-repeat: no-repeat; background-position: center;
+    }
+    .phone-consent-text span { text-decoration: underline; cursor: pointer; color: #109E8E; }
+    .phone-consent-text a { color: #109E8E; text-decoration: underline; font-weight: 500; }
+
+    .participating-text {
+      font-size: 11.5px; font-family: 'Inter', sans-serif; font-weight: 400;
+      color: #5B5A5A; text-align: left; line-height: 13px;
+      margin-top: 40px; padding-left: 32px;
+    }
+
+    /* Button */
+    .continue-button {
+      background: #109E8E; border-radius: 47px; padding: 22px;
+      font-family: 'Inter', sans-serif; font-size: 23px; color: #fff;
+      font-weight: 700; width: 100%; border: 0; cursor: pointer;
+      text-align: center; line-height: 1rem; margin-top: 34px;
+      min-height: 54px;
+    }
+    .continue-button:hover { background: #0C8375; }
+
+    .ad-text {
+      font-size: 13px; font-family: Inter; line-height: 17px;
+      font-weight: 500; color: #5B5A5A; text-align: center;
+    }
+
+    /* Disclaimers */
+    .tpmo-lang {
+      color: #000; text-align: center; font-weight: 500;
+      font-size: 18px; line-height: 20px;
+      margin: 20px auto 40px auto; max-width: 620px; padding: 0 15px;
+    }
+
+    /* Footer */
+    .footer-container {
+      width: 100%; margin-top: auto; display: flex; flex-direction: column;
+      gap: 40px; background-color: #243B45; padding: 60px 18px;
+      text-align: center; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-size: 12px;
+    }
+    .footer-container a { text-decoration: none; }
+    .footer-container a:hover { text-decoration: underline; }
+    .footer-copy {
+      display: flex; flex-direction: column; gap: 12px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: normal;
+      line-height: 20px; color: #C4C4C4;
+    }
+    .footer-copy a { text-decoration: none; color: #C4C4C4; }
+    .footer-copy a:hover { text-decoration: underline; color: #C4C4C4; }
+    .footer-logo-wrapper {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 10px; margin: 40px 0 0 0;
+    }
+    .footer-logo-subtitle {
+      font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 2.5px; text-transform: uppercase; color: #109E8E; margin: 0;
+    }
+    .footer-logo-img { width: auto; height: 69px; }
+
+    /* Thank you page */
+    .thankyou-page { display: none; }
+    .thankyou-page.active { display: flex; flex-direction: column; align-items: center; width: 100%; flex: 1; }
+    .thankyou-page .page-container-wrapper {
+      display: flex; justify-content: center; align-items: flex-start;
+      height: 100vh; padding-top: 4vh; box-sizing: border-box;
+      text-align: center; padding-left: 50px; padding-right: 50px;
+    }
+    .thankyou-page .textHead {
+      color: #243B45; font-family: 'Inter', sans-serif; font-size: 26px;
+      font-weight: 800; line-height: 30px; text-align: center; max-width: 1166px;
+    }
+    .thankyou-page .footer-content { margin-top: 200px; }
+    @media only screen and (max-width: 500px) {
+      .thankyou-page .textHead { font-size: 22px; line-height: 28px; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .main-form-container-v2 { padding-left: 0; padding-right: 0; width: 97%; margin: 0 auto; }
+      .form-field-row { flex-wrap: wrap; gap: 10px; }
+    }
+    @media (max-width: 500px) {
+      .form-container { width: 97%; padding: 0; margin-bottom: 40px; border: none; }
+      .offer-headline { font-size: 26px; line-height: 33px; padding: 5px 18px 0 18px; }
+      .offer-subheadline { padding: 0 18px; }
+      .offer-sep-disclaimer { padding: 0 18px; }
+    }
+    @media (max-width: 440px) {
+      .logo-img { width: auto; height: 55px; }
+      .footer-logo-img { width: auto; height: 55px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="main-content">
+
+    <!-- PAGE 1: FORM -->
+    <div id="page1">
+      <div class="offer-container">
+        <div class="logo-wrapper">
+          <img alt="AmericasHealth" class="logo-img" src="./logo_color.svg">
+          <span class="govt-tag">A Non-Government Entity</span>
+          <a class="call-cta" href="tel:8669075037">
+            <span class="call-cta-icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            </span>
+            <span class="call-cta-text">
+              <span class="call-cta-label">Call a licensed insurance agent</span>
+              <span class="call-cta-number">866-907-5037 <span class="call-cta-tty">(TTY 711)</span></span>
+              <span class="call-cta-hours">Today: 9:00AM &ndash; 6:30PM (EST)</span>
+            </span>
+          </a>
+        </div>
+
+        <div class="offer-headline">
+          Enter Your Information For A Free,<br>
+          No Obligation Medicare Advantage Plan<br>
+          Review With A Licensed Insurance Agent.
+        </div>
+
+        <div class="offer-sep-disclaimer">
+          Special Enrollment Periods (SEPs) are granted by Medicare based on
+          specific qualifying events, such as loss of employer coverage, changes
+          in residence, eligibility for Medicaid or Extra Help, or other circumstances
+          defined by CMS. SEP availability, enrollment windows, and plan options vary
+          and are not guaranteed. Submission of information or contact through this
+          website does not confirm SEP eligibility or enrollment. Enrollment in the described
+          plan type may be limited to certain times of the year unless you qualify for a Special Enrollment Period.
+        </div>
+
+        <div class="offer-subheadline">Check your eligibility to enroll</div>
+      </div>
+
+      <div class="main-form-container">
+        <div class="main-form-container-v2">
+          <div class="form-container">
+            <form id="formSubmit" onsubmit="handleSubmit(event)">
+              <div class="form-field">
+                <label for="first_name">Full Name (Optional)</label>
+                <input class="form-input" id="first_name" name="first_name" type="text" value="" required>
+              </div>
+              <div class="form-field">
+                <label for="email">Email (Optional)</label>
+                <input class="form-input" id="email" name="email" type="email" value="" required>
+              </div>
+              <div class="form-field">
+                <label for="phone">Phone (Optional)</label>
+                <input class="form-input" id="phone" name="phone" type="tel" maxlength="14" inputmode="numeric" autocomplete="tel" value="" required>
+              </div>
+              <div class="form-field">
+                <label for="zip">Zip Code (Optional)</label>
+                <input class="form-input" id="zip" name="zip" type="text" maxlength="5" inputmode="numeric" autocomplete="postal-code" value="" required>
+              </div>
+              <div class="form-field">
+                <label for="dob">Date of Birth (Optional)</label>
+                <div class="form-field-row">
+                  <div class="form-field-third">
+                    <select class="form-input" id="dob_month" name="dob_month" required>
+                      <option hidden value="">Month</option>
+                      <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                      <option value="4">4</option><option value="5">5</option><option value="6">6</option>
+                      <option value="7">7</option><option value="8">8</option><option value="9">9</option>
+                      <option value="10">10</option><option value="11">11</option><option value="12">12</option>
+                    </select>
+                  </div>
+                  <div class="form-field-third">
+                    <select class="form-input" id="dob_day" name="dob_day" required>
+                      <option hidden value="">Day</option>
+                      <script>for(let i=1;i<=31;i++)document.write('<option value="'+i+'">'+i+'</option>')</script>
+                    </select>
+                  </div>
+                  <div class="form-field-third">
+                    <select class="form-input" id="dob_year" name="dob_year" required>
+                      <option hidden value="">Year</option>
+                      <script>for(let i=2007;i>=1900;i--)document.write('<option value="'+i+'">'+i+'</option>')</script>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <div class="phone-consent-text">
+                <input type="checkbox" id="tcpa_checkbox">
+                <div>
+                  By selecting "Submit" and submitting my information, I provide my prior express written consent to be contacted by a licensed agent of Americas Health at the phone number I provided, even if it is listed on the National Do Not Call Registry, and I agree to receive calls, text messages, and emails using live agents, automated dialing systems, and/or prerecorded or artificial voice messages; I understand this request has been initiated by me and that this is an unscheduled contact request where I am requesting information immediately. I understand I am not required to enter into this agreement as a condition of any purchase or service. I further understand that this request, initiated by me, is my affirmative consent to be contacted which is in compliance with all federal and state telemarketing and Do-Not-Call laws. Licensed Sales Agents are not connected with or endorsed by the U.S. government or the federal Medicare program. I agree to the <a href="./privacy-policy.html" target="_blank">Privacy Policy</a> and <a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a>. Please note this is a solicitation for insurance. There is no obligation to enroll. Message and data rates may apply. Message frequency varies.
+                </div>
+              </div>
+
+              <div class="participating-text">
+                Participating sales agencies represent Medicare Advantage HMO, PPO and PFFS organizations and stand-alone PDP prescription drug plans that are contracted with Medicare. Enrollment depends on the plan's contract renewal.
+              </div>
+
+              <button class="continue-button" type="submit">Submit</button>
+
+              <div class="ad-text" style="margin-top:12px;">Insurance Ad - No Government Affiliation</div>
+              <div class="ad-text">MULTIPLAN_RMG_FB9_2026_C</div>
+            </form>
+          </div>
+
+          <div class="tpmo-lang" style="margin-bottom:0;">
+            Special Enrollment Periods (SEPs): Enrollment in the described plan type may be limited to certain times of the year unless you qualify for a Special Enrollment Period.
+          </div>
+          <div class="tpmo-lang">
+            We do not offer every plan available in your area. Currently we represent 16 organizations which offer 4,405 products in your area. Please contact Medicare.gov, 1-800-MEDICARE, or your local State Health Insurance Program (SHIP) to get information on all of your options.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE 2: THANK YOU -->
+    <div id="page2" class="thankyou-page">
+      <div class="logo-wrapper">
+        <img alt="AmericasHealth" class="logo-img" src="./logo_color.svg">
+        <span class="govt-tag">A Non-Government Entity</span>
+      </div>
+      <div class="page-container-wrapper">
+        <div class="textHead">Thank you! Your submission has been received. You will receive a call from a licensed insurance agent from Americas Health shortly to learn more about medicare savings and benefits.</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-container">
+      <div class="footer-logo-wrapper">
+        <img class="footer-logo-img" src="./logo_white.svg">
+        <p class="footer-logo-subtitle">A Non-Government Entity</p>
+      </div>
+      <div class="footer-copy">
+        <span><b>&copy; 2026 Americas Health. All rights reserved.</b></span>
+        <span>
+          <a href="./privacy-policy.html" target="_blank">Privacy Policy</a>&nbsp;|&nbsp;<a href="./terms-and-conditions.html" target="_blank">Terms and Conditions</a> | Contact: info@americashealthbenefit.com
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Phone formatting
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function(e) {
+        let d = e.target.value.replace(/\D/g, '').slice(0, 10);
+        if (d.length < 4) e.target.value = d.length ? '(' + d : '';
+        else if (d.length < 7) e.target.value = '(' + d.slice(0,3) + ') ' + d.slice(3);
+        else e.target.value = '(' + d.slice(0,3) + ') ' + d.slice(3,6) + '-' + d.slice(6,10);
+      });
+    }
+
+    // Form submission
+    async function handleSubmit(e) {
+      e.preventDefault();
+
+      if (!document.getElementById('tcpa_checkbox').checked) {
+        alert('Please agree to the terms to continue.');
+        return;
+      }
+
+      var tracker = window._ahTracker;
+      var data = {
+        session_id: tracker.SESSION_ID,
+        first_name: document.getElementById('first_name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        zip: document.getElementById('zip').value,
+        dob_month: document.getElementById('dob_month').value,
+        dob_day: document.getElementById('dob_day').value,
+        dob_year: document.getElementById('dob_year').value,
+        tcpa_consent: document.getElementById('tcpa_checkbox').checked,
+      };
+      Object.assign(data, tracker.getUtms());
+
+      try {
+        var resp = await fetch('/api/register', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+        });
+        if (!resp.ok) {
+          var err = await resp.json();
+          alert(err.message || 'Submission failed. Please try again.');
+          return;
+        }
+      } catch (ex) {
+        // If API is unreachable, still show thank you (graceful degradation)
+        console.error('Registration API error:', ex);
+      }
+
+      document.getElementById('page1').style.display = 'none';
+      document.getElementById('page2').classList.add('active');
+      window.scrollTo(0, 0);
+      tracker.trackEvent('page_view');
+    }
+  </script>
+  <script src="/js/tracker.js"></script>
+</body>
+</html>
