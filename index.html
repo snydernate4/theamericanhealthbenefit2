@@ -398,6 +398,8 @@
         tcpa_consent: document.getElementById('tcpa_checkbox').checked,
       };
       Object.assign(data, tracker.getUtms());
+      data.ad_code = "MULTIPLAN_RMG_FB9_2026_C";
+      data.lead_source = "theamericanhealthbenefit2";
 
       try {
         var resp = await fetch('/api/register', {
