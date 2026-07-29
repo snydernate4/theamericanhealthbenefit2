@@ -1,7 +1,0 @@
-# Forward all /api/* requests to the original site's backend so form
-# submissions, event tracking, and zip lookup flow into the same system.
-[[redirects]]
-  from = "/api/*"
-  to = "https://theamericanhealthbenefit.com/api/:splat"
-  status = 200
-  force = true
